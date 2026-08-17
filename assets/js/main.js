@@ -98,12 +98,29 @@ function initializeCountdown(ceremonyDateTime) {
 
 function initializeEnvelope() {
     const envelopeBtn = document.getElementById('envelopeBtn');
+    const slideshow = document.getElementById('openingSlideshow');
+    const slides = slideshow.querySelectorAll('img');
+    const SLIDE_DURATION = 1300; // ms por foto
 
     envelopeBtn.addEventListener('click', function() {
         envelopeBtn.style.transform = 'rotateX(180deg)';
         envelopeBtn.innerHTML = '<span class="envelope-icon">💌</span><span>Invitación abierta</span>';
 
-        document.documentElement.classList.add('invitation-opened');
+        slideshow.classList.add('is-active');
+        slides[0].classList.add('is-shown');
+
+        let index = 0;
+        const interval = setInterval(function() {
+            slides[index].classList.remove('is-shown');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('is-shown');
+        }, SLIDE_DURATION);
+
+        setTimeout(function() {
+            clearInterval(interval);
+            slideshow.classList.remove('is-active');
+            document.documentElement.classList.add('invitation-opened');
+        }, SLIDE_DURATION * slides.length);
     }, { once: true });
 }
 

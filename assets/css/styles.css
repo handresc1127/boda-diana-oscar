@@ -156,6 +156,36 @@ html:not(.invitation-opened) .footer {
     animation: fadeInUp 1s ease-in-out;
 }
 
+.opening-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background: var(--color-bg);
+    transition: opacity 0.4s ease-in-out;
+}
+
+.opening-slideshow.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.opening-slideshow img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.opening-slideshow img.is-shown {
+    opacity: 1;
+}
+
 .hero-decoration-top,
 .hero-decoration-bottom {
     font-size: 2rem;
