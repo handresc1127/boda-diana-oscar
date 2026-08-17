@@ -209,6 +209,133 @@ function openLightbox(imageName) {
 }
 
 // ============================================
+// MODAL FORMULARIO RSVP
+// ============================================
+
+// URL del Google Apps Script (vacía por ahora, se completa cuando esté lista)
+// Reemplaza con tu URL de deployment: https://script.google.com/macros/s/AKfycby...
+const APPS_SCRIPT_URL = '';
+
+function openRsvpModal() {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        animation: fadeInUp 0.3s ease-in-out;
+    `;
+
+    const content = document.createElement('div');
+    content.style.cssText = `
+        position: relative;
+        background: var(--color-white);
+        border-radius: 10px;
+        padding: 2rem;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    `;
+
+    content.innerHTML = `
+        <h3 style="margin-top: 0; color: var(--color-primary); font-family: 'Playfair Display', serif; font-size: 1.5rem;">
+            Confirmar Asistencia
+        </h3>
+        <form id="rsvpFormElement" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: var(--color-text); font-weight: 500;">
+                    Nombre Completo
+                </label>
+                <input type="text" name="nombre" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 5px; font-size: 1rem; font-family: inherit;" placeholder="Tu nombre">
+            </div>
+            <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: var(--color-text); font-weight: 500;">
+                    Cantidad de Personas
+                </label>
+                <select name="cupos" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 5px; font-size: 1rem; font-family: inherit;">
+                    <option value="">Selecciona...</option>
+                    <option value="1">1 persona</option>
+                    <option value="2">2 personas</option>
+                    <option value="3">3 personas</option>
+                    <option value="4">4 personas</option>
+                    <option value="5">5+ personas</option>
+                </select>
+            </div>
+            <div>
+                <label style="display: block; margin-bottom: 0.5rem; color: var(--color-text); font-weight: 500;">
+                    ¿Asistirás?
+                </label>
+                <div style="display: flex; gap: 1rem;">
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="radio" name="asistencia" value="si" required style="margin-right: 0.5rem;">
+                        Sí, confirmo
+                    </label>
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="radio" name="asistencia" value="no" style="margin-right: 0.5rem;">
+                        No puedo asistir
+                    </label>
+                </div>
+            </div>
+            <button type="submit" style="background: var(--color-primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 5px; font-size: 1rem; cursor: pointer; font-weight: 500; transition: opacity 0.3s;">
+                Enviar Confirmación
+            </button>
+        </form>
+    `;
+
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '✕';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--color-text);
+    `;
+
+    closeBtn.addEventListener('click', () => modal.remove());
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+
+    const form = content.querySelector('#rsvpFormElement');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = {
+            nombre: form.querySelector('input[name="nombre"]').value,
+            cupos: form.querySelector('select[name="cupos"]').value,
+            asistencia: form.querySelector('input[name="asistencia"]:checked').value,
+            timestamp: new Date().toISOString()
+        };
+
+        console.log('📤 Datos de RSVP listos (POST NO ENVIADO AÚN):', formData);
+        // TODO: Descomentar cuando Apps Script esté listo
+        // fetch(APPS_SCRIPT_URL, {
+        //     method: 'POST',
+        //     mode: 'no-cors',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(formData)
+        // });
+
+        modal.remove();
+        alert('¡Gracias por confirmar! Tu respuesta ha sido registrada.');
+    });
+
+    content.appendChild(closeBtn);
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+}
+
+// ============================================
 // HOTELES
 // ============================================
 
@@ -301,6 +428,17 @@ function initializeNavigation() {
 document.addEventListener('DOMContentLoaded', function() {
     initializeEnvelope();
     initializeWeddingData();
+
+    // Interceptar clic del botón RSVP y mostrar modal en lugar de Google Forms
+    const rsvpFormLink = document.getElementById('rsvpFormLink');
+    if (rsvpFormLink) {
+        rsvpFormLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openRsvpModal();
+        });
+        // No establecer href a Google Forms, ya que ahora usamos modal
+    }
+
     initializeGallery();
     initializeAddToCalendar();
     initializeScrollAnimations();
