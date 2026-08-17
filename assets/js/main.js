@@ -98,19 +98,13 @@ function initializeCountdown(ceremonyDateTime) {
 
 function initializeEnvelope() {
     const envelopeBtn = document.getElementById('envelopeBtn');
-    let isOpened = false;
 
     envelopeBtn.addEventListener('click', function() {
-        isOpened = !isOpened;
+        envelopeBtn.style.transform = 'rotateX(180deg)';
+        envelopeBtn.innerHTML = '<span class="envelope-icon">💌</span><span>Invitación abierta</span>';
 
-        if (isOpened) {
-            envelopeBtn.style.transform = 'rotateX(180deg)';
-            envelopeBtn.innerHTML = '<span class="envelope-icon">💌</span><span>Invitación abierta</span>';
-        } else {
-            envelopeBtn.style.transform = 'rotateX(0deg)';
-            envelopeBtn.innerHTML = '<span class="envelope-icon">✉️</span><span>Abre la invitación</span>';
-        }
-    });
+        document.documentElement.classList.add('invitation-opened');
+    }, { once: true });
 }
 
 // ============================================
@@ -288,8 +282,8 @@ function initializeNavigation() {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    initializeWeddingData();
     initializeEnvelope();
+    initializeWeddingData();
     initializeGallery();
     initializeAddToCalendar();
     initializeScrollAnimations();

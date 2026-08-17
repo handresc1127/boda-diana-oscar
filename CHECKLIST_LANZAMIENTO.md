@@ -91,8 +91,7 @@ Usa este checklist para asegurar que todo está listo antes de compartir tu invi
 - [ ] ¿Los datos personalizados aparecen?
 
 ### Verificar Funcionalidades
-- [ ] Hago scroll y veo todas las secciones
-- [ ] Hago click en "Abre la invitación" (efecto animado)
+- [ ] Hago click en "Abre la invitación" (efecto animado, revela el menú) y luego hago scroll y veo todas las secciones
 - [ ] La cuenta regresiva cuenta hacia atrás (se actualiza cada segundo)
 - [ ] Hago click en "Ver en el mapa" (se abre Google Maps)
 - [ ] Los botones de formularios tienen los enlaces correctos
