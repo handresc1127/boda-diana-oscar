@@ -1,0 +1,158 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║          INVITACIÓN DE BODA — DIANA & OSCAR — GUÍA RÁPIDA                  ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+¡Tu página de invitación está lista! Aquí están los 5 pasos para ponerla en línea:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 1: PERSONALIZAR TUS DATOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Abre el archivo: index.html
+
+Busca este bloque al inicio (línea ~17):
+    <script>
+    window.WEDDING_DATA = {
+        groomName: "Oscar",
+        brideName: "Diana",
+        ...
+
+Reemplaza TODOS estos valores con tus datos reales:
+    ✓ groomName → Nombre del novio
+    ✓ brideName → Nombre de la novia
+    ✓ ceremonyDateTime → Fecha y hora (YYYY-MM-DD HH:mm)
+    ✓ ceremonyLocation → Nombre del lugar de ceremonia
+    ✓ ceremonyCity → Ciudad y departamento
+    ✓ ceremonyTime → Hora de ceremonia (6:00 PM)
+    ✓ receptionLocation → Nombre del lugar de recepción
+    ✓ receptionCity → Ciudad de recepción
+    ✓ receptionTime → Hora de recepción
+    ✓ weddingHashtag → Tu hashtag (#TusNombres)
+    ✓ rsvpDeadline → Fecha límite (ej: "30 de noviembre de 2025")
+    ✓ hotels → Hoteles cercanos con enlaces a Booking
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 2: CREAR TUS GOOGLE FORMS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Necesitas crear 3 formularios en Google Forms (gratuito):
+
+1. FORMULARIO DE RSVP (Confirmar asistencia)
+   → Ve a forms.google.com
+   → Crea un formulario nuevo
+   → Agrega campos: Nombre, Número de personas, Alergias/restricciones
+   → Haz clic en "Enviar"
+   → Copia la URL corta
+   → Pégala en: rsvpFormUrl: "https://forms.gle/..."
+
+2. FORMULARIO DE MÚSICA
+   → Campos: Nombre de la canción, Artista
+   → Copia URL en: musicFormUrl: "https://forms.gle/..."
+
+3. FORMULARIO DE SUGERENCIAS
+   → Campos: Nombre, Mensaje especial
+   → Copia URL en: suggestionsFormUrl: "https://forms.gle/..."
+
+Y también:
+   → Reemplaza rsvpFormUrl, musicFormUrl, suggestionsFormUrl en index.html
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 3: AGREGAR FOTOS (Opcional pero recomendado)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+En la carpeta assets/, crea una subcarpeta llamada: img/
+
+Sube tus fotos en esa carpeta (photo1.jpg, photo2.jpg, etc.)
+
+Luego, en index.html, busca la sección <!-- GALERÍA -->
+
+Reemplaza esto:
+    <div class="gallery-placeholder">
+        <p>Foto de Diana y Oscar</p>
+    </div>
+
+Por esto:
+    <img src="assets/img/photo1.jpg" alt="Diana y Oscar" style="width: 100%; height: 100%; object-fit: cover;">
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 4: DESPLEGAR EN NETLIFY (Gratis, sin instalar nada)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OPCIÓN A: Netlify Drop (La más simple)
+    1. Ve a: https://app.netlify.com/drop
+    2. Selecciona toda la carpeta "boda-diana-oscar" y arrástrala
+    3. ¡Listo! Tu sitio está en línea en 10 segundos
+    4. Copia la URL que te genera (algo como: https://random-123456.netlify.app)
+
+OPCIÓN B: Netlify con nombre personalizado (RECOMENDADO)
+    1. Crea cuenta en: https://app.netlify.com (usa email o Google)
+    2. Haz clic en "New site from Git" → "Deploy manually"
+    3. Arrastra la carpeta "boda-diana-oscar"
+    4. En Site Settings → Change site name → escribe: nuestraboda-dianayoscar
+    5. Tu URL final será: https://nuestraboda-dianayoscar.netlify.app
+    6. ¡Comparte ese enlace con tus invitados!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 5: PROBAR Y COMPARTIR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Abre tu URL en el navegador y verifica:
+
+    ✓ Los nombres de Diana & Oscar aparecen correctamente
+    ✓ La cuenta regresiva funciona (se actualiza cada segundo)
+    ✓ Se pueden hacer click en "Ver en el mapa"
+    ✓ Los formularios de RSVP aceptan respuestas
+    ✓ La galería se ve bien
+    ✓ Se ve correctamente en móvil (abre con el navegador del celular)
+
+Luego comparte el enlace:
+    • Por WhatsApp
+    • Por correo
+    • En redes sociales
+    • Imprime el código QR de la URL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ARCHIVOS IMPORTANTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    📄 index.html → La página principal (EDITA AQUÍ tus datos)
+    🎨 assets/css/styles.css → Estilos (para cambiar colores, fuentes)
+    ⚙️ assets/js/main.js → Funcionalidades (cuenta regresiva, galería, etc.)
+    📋 README.md → Documentación completa con más detalles
+    🌐 netlify.toml → Configuración para Netlify (no tocar)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+¿TIENES DUDAS?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    ❓ ¿Cómo cambio los colores?
+        → Abre assets/css/styles.css, busca "--color-primary"
+
+    ❓ ¿Cómo agrego más hoteles?
+        → En index.html, agrega objetos al array "hotels"
+
+    ❓ ¿La URL no se ve bien?
+        → Abre https://app.netlify.com, ve a "Site settings"
+
+    ❓ ¿Puedo usar dominio propio (ej: dianayoscar.com)?
+        → Sí, después en Netlify puedes conectar un dominio
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+¡LISTO! Solo necesitas:
+
+    1. Editar los datos en index.html ← AHORA
+    2. Crear Google Forms ← AHORA
+    3. Desplegar en Netlify ← AHORA
+    4. ¡Compartir con tus invitados! 🎉
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                 ¡Que disfrutes tu boda! 💕 ✨ 💍                           ║
+╚════════════════════════════════════════════════════════════════════════════╝

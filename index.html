@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diana & Oscar — Nuestra Boda</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============================================
+     CONFIGURACIÓN CENTRAL: EDITAR AQUÍ TUS DATOS
+     ============================================ -->
+<script>
+window.WEDDING_DATA = {
+    // Nombres de los novios
+    groomName: "Oscar",
+    brideName: "Diana",
+
+    // Fecha y hora de la ceremonia (YYYY-MM-DD HH:mm)
+    ceremonyDateTime: "2025-12-13 18:00",
+
+    // Detalles de la ceremonia
+    ceremonyLocation: "Catedral San Jerónimo",
+    ceremonyCity: "Villa de Leyva, Córdoba",
+    ceremonyTime: "6:00 PM",
+    ceremonyMapUrl: "https://maps.google.com/?q=Catedral+San+Jeronimo+Villa+de+Leyva",
+
+    // Detalles de la recepción
+    receptionLocation: "Salón de Recepciones La Paz",
+    receptionCity: "Montería, Córdoba",
+    receptionTime: "7:00 PM",
+    receptionMapUrl: "https://maps.google.com/?q=Salon+Recepciones+La+Paz+Monteria",
+
+    // Código de vestimenta
+    dressCode: "Formal elegante",
+    dressCodeDescription: "Vestidos largos para las damas y traje para los caballeros",
+
+    // Hashtag para fotos
+    weddingHashtag: "#DianaYOscar",
+
+    // Google Forms
+    rsvpFormUrl: "https://forms.gle/placeholder-rsvp-form",
+    musicFormUrl: "https://forms.gle/placeholder-music-form",
+    suggestionsFormUrl: "https://forms.gle/placeholder-suggestions-form",
+
+    // Fecha límite de confirmación
+    rsvpDeadline: "30 de noviembre de 2025",
+
+    // Hoteles cercanos (array de objetos)
+    hotels: [
+        {
+            name: "Hotel Casa Blanca",
+            city: "Villa de Leyva",
+            website: "https://booking.com"
+        },
+        {
+            name: "Posada de San Antonio",
+            city: "Villa de Leyva",
+            website: "https://booking.com"
+        },
+        {
+            name: "Hotel Montería Plaza",
+            city: "Montería",
+            website: "https://booking.com"
+        }
+    ],
+
+    // Instagram hashtag para que busquen fotos
+    instagramHashtag: "DianaYOscar"
+};
+</script>
+
+<!-- Navegación -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <span class="navbar-logo">✨ Diana & Oscar ✨</span>
+        <ul class="nav-menu">
+            <li><a href="#portada">Inicio</a></li>
+            <li><a href="#ceremonia">Ceremonia</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#confirmacion">Confirmación</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ============================================
+     1. PORTADA / HERO SECTION
+     ============================================ -->
+<section id="portada" class="hero">
+    <div class="hero-content">
+        <div class="hero-decoration-top">❀</div>
+        <h1 class="hero-title" id="heroTitle">Diana & Oscar</h1>
+        <p class="hero-subtitle">¡Nos Casamos!</p>
+        <p class="hero-tagline">Este sueño no estaría completo sin ti</p>
+        <button class="envelope-btn" id="envelopeBtn">
+            <span class="envelope-icon">✉️</span>
+            <span>Abre la invitación</span>
+        </button>
+        <div class="hero-decoration-bottom">❀</div>
+    </div>
+    <div class="hero-background"></div>
+</section>
+
+<!-- ============================================
+     2. ANUNCIO DEL COMPROMISO
+     ============================================ -->
+<section id="anuncio" class="announcement">
+    <div class="container">
+        <h2>¡Nos Casamos!</h2>
+        <p class="announcement-text">
+            Tras siete años juntos, hemos decidido que el momento de estar unidos por siempre ha llegado.
+            Queremos construir una familia basada en amor, fe y compromiso. Este es el comienzo de una
+            nueva etapa en nuestras vidas, y no podríamos imaginarnos compartirlo con personas más especiales
+            que ustedes.
+        </p>
+        <p class="announcement-quote">"El matrimonio es el comienzo de todas las cosas" — Germaine Greer</p>
+    </div>
+</section>
+
+<!-- ============================================
+     3. CUENTA REGRESIVA
+     ============================================ -->
+<section id="countdown" class="countdown-section">
+    <div class="container">
+        <h2>La Gran Fecha Se Acerca</h2>
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="countdownDays">0</div>
+                <div class="countdown-label">Días</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="countdownHours">0</div>
+                <div class="countdown-label">Horas</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="countdownMinutes">0</div>
+                <div class="countdown-label">Minutos</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="countdownSeconds">0</div>
+                <div class="countdown-label">Segundos</div>
+            </div>
+        </div>
+        <p class="countdown-date" id="countdownDate">13 de diciembre de 2025</p>
+    </div>
+</section>
+
+<!-- ============================================
+     4. ITINERARIO DEL DÍA
+     ============================================ -->
+<section id="itinerario" class="itinerary">
+    <div class="container">
+        <h2>Nuestro Día</h2>
+        <div class="itinerary-timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">6:00 PM</div>
+                <div class="timeline-event">Ceremonia religiosa</div>
+                <div class="timeline-location">Catedral San Jerónimo</div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-item">
+                <div class="timeline-time">7:00 PM</div>
+                <div class="timeline-event">Recepción y cena</div>
+                <div class="timeline-location">Salón de Recepciones</div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-item">
+                <div class="timeline-time">11:00 PM</div>
+                <div class="timeline-event">Baile y celebración</div>
+                <div class="timeline-location">Sorpresas especiales</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     5. DETALLES DE LA CEREMONIA
+     ============================================ -->
+<section id="ceremonia" class="event-details">
+    <div class="container">
+        <div class="event-card">
+            <div class="event-card-icon">⛪</div>
+            <h3 class="event-card-title">Ceremonia Religiosa</h3>
+            <p class="event-card-time" id="ceremonyTimeDisplay">6:00 PM</p>
+            <p class="event-card-location" id="ceremonyLocationDisplay">
+                Catedral San Jerónimo<br>
+                Villa de Leyva, Córdoba
+            </p>
+            <a href="#" class="event-card-link" id="ceremonyMapLink" target="_blank">
+                📍 Ver en el mapa
+            </a>
+        </div>
+
+        <div class="event-card">
+            <div class="event-card-icon">🥂</div>
+            <h3 class="event-card-title">Recepción</h3>
+            <p class="event-card-time" id="receptionTimeDisplay">7:00 PM</p>
+            <p class="event-card-location" id="receptionLocationDisplay">
+                Salón de Recepciones La Paz<br>
+                Montería, Córdoba
+            </p>
+            <a href="#" class="event-card-link" id="receptionMapLink" target="_blank">
+                📍 Ver en el mapa
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     6. GALERÍA DE FOTOS
+     ============================================ -->
+<section id="galeria" class="gallery">
+    <div class="container">
+        <h2>Nuestros Momentos</h2>
+        <p class="section-subtitle">Compartimos estos recuerdos especiales contigo</p>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-full-img="placeholder-1">
+                <div class="gallery-placeholder">
+                    <p>Foto de Diana y Oscar</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-full-img="placeholder-2">
+                <div class="gallery-placeholder">
+                    <p>Foto de Diana y Oscar</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-full-img="placeholder-3">
+                <div class="gallery-placeholder">
+                    <p>Foto de Diana y Oscar</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-full-img="placeholder-4">
+                <div class="gallery-placeholder">
+                    <p>Foto de Diana y Oscar</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-full-img="placeholder-5">
+                <div class="gallery-placeholder">
+                    <p>Foto de Diana y Oscar</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-full-img="placeholder-6">
+                <div class="gallery-placeholder">
+                    <p>Foto de Diana y Oscar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     7. CÓDIGO DE VESTIMENTA
+     ============================================ -->
+<section id="vestimenta" class="dress-code">
+    <div class="container">
+        <h2>Código de Vestimenta</h2>
+        <div class="dress-code-content">
+            <div class="dress-code-item">
+                <div class="dress-code-icon">👗</div>
+                <h3>Para las Damas</h3>
+                <p id="dresscodeForWomen">
+                    Vestido largo o de cocktail en tonos elegantes. Puedes inspirarte
+                    en nuestro tablero de Pinterest.
+                </p>
+            </div>
+            <div class="dress-code-item">
+                <div class="dress-code-icon">🎩</div>
+                <h3>Para los Caballeros</h3>
+                <p id="dresscodeForMen">
+                    Traje formal oscuro con corbata. Te recomendamos zapatos de cuero
+                    pulido para completar el look.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     8. MÚSICA Y CANCELITAS
+     ============================================ -->
+<section id="musica" class="music-section">
+    <div class="container">
+        <h2>Ayúdanos a Celebrar</h2>
+        <p class="section-subtitle">¿Tienes una canción especial que quieras que suene en nuestro día?</p>
+        <div class="music-content">
+            <p>
+                Nos encantaría incluir tus canciones favoritas en la celebración.
+                Comparte tus sugerencias a través del siguiente formulario:
+            </p>
+            <a href="#" class="btn-primary" id="musicFormLink" target="_blank">
+                🎵 Sugerir una canción
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     9. HASHTAG PARA COMPARTIR FOTOS
+     ============================================ -->
+<section id="hashtag" class="hashtag-section">
+    <div class="container">
+        <h2>Comparte Tus Fotos</h2>
+        <p class="section-subtitle">Usa nuestro hashtag en Instagram</p>
+        <div class="hashtag-box">
+            <p class="hashtag-large" id="hashtagDisplay">#DianaYOscar</p>
+            <p class="hashtag-text">
+                Sigue nuestro hashtag en Instagram y mira todas las fotos que nuestros invitados
+                compartan de la celebración.
+            </p>
+            <a href="#" class="btn-secondary" id="instagramLink" target="_blank">
+                📸 Buscar en Instagram
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     10. HOSPEDAJE
+     ============================================ -->
+<section id="hospedaje" class="accommodations">
+    <div class="container">
+        <h2>Dónde Hospedarse</h2>
+        <p class="section-subtitle">Recomendaciones de hoteles cercanos</p>
+        <div class="hotels-grid" id="hotelsGrid">
+            <!-- Se genera dinámicamente con JavaScript -->
+        </div>
+        <p class="accommodations-note">
+            Muchos hoteles ofrecen tarifas especiales para eventos. Te recomendamos contactar directamente
+            para preguntar por la "tarifa de boda".
+        </p>
+    </div>
+</section>
+
+<!-- ============================================
+     11. CONFIRMACIÓN DE ASISTENCIA (RSVP)
+     ============================================ -->
+<section id="confirmacion" class="rsvp">
+    <div class="container">
+        <h2>Confirma Tu Asistencia</h2>
+        <p class="section-subtitle">Por favor, confirma antes del <span id="rsvpDeadlineDisplay">30 de noviembre de 2025</span></p>
+
+        <div class="rsvp-content">
+            <p>
+                Tu presencia es lo más importante para nosotros. Por favor,
+                confirma tu asistencia a través del siguiente formulario:
+            </p>
+            <a href="#" class="btn-primary btn-large" id="rsvpFormLink" target="_blank">
+                ✓ Confirmar Asistencia
+            </a>
+
+            <div class="rsvp-calendar">
+                <button class="btn-secondary" id="addToCalendarBtn">
+                    📅 Agregar al Calendario
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     12. SUGERENCIAS Y COMENTARIOS
+     ============================================ -->
+<section id="sugerencias" class="suggestions">
+    <div class="container">
+        <h2>Déjanos Tu Mensaje</h2>
+        <p class="section-subtitle">Tus mensajes y sugerencias son muy importantes para nosotros</p>
+        <div class="suggestions-content">
+            <p>
+                Si tienes algún comentario, sugerencia o simplemente quieres enviarnos
+                un mensaje especial, por favor completa el siguiente formulario:
+            </p>
+            <a href="#" class="btn-secondary" id="suggestionsFormLink" target="_blank">
+                💌 Enviar un Mensaje
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     13. FOOTER
+     ============================================ -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Diana & Oscar. Todos los derechos reservados.</p>
+        <p class="footer-note">
+            Hecho con ❤️ para nuestros invitados especiales
+        </p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

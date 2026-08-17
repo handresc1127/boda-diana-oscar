@@ -1,0 +1,863 @@
+/* ============================================
+   VARIABLES CSS - COLORES Y FUENTES
+   ============================================ */
+:root {
+    --color-primary: #8B4789;
+    --color-secondary: #D4A5D4;
+    --color-accent: #E8C1E8;
+    --color-text: #333;
+    --color-text-light: #666;
+    --color-bg: #FFF9F7;
+    --color-white: #FFFFFF;
+    --color-border: #E8D5E8;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --transition: all 0.3s ease-in-out;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode (optional) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #E8E8E8;
+        --color-text-light: #B0B0B0;
+        --color-bg: #1A1416;
+        --color-white: #2A2427;
+        --color-border: #3D3238;
+    }
+}
+
+/* ============================================
+   RESET Y ESTILOS GLOBALES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   NAVEGACIÓN
+   ============================================ */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: var(--color-white);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: var(--transition);
+    border-bottom: 2px solid transparent;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    .navbar-logo {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================
+   HERO / PORTADA
+   ============================================ */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    background: radial-gradient(circle at 20% 50%, var(--color-primary) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, var(--color-primary) 0%, transparent 50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.hero-decoration-top,
+.hero-decoration-bottom {
+    font-size: 2rem;
+    color: var(--color-primary);
+    opacity: 0.6;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-decoration-top {
+    animation-delay: 0s;
+}
+
+.hero-decoration-bottom {
+    animation-delay: 1.5s;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--color-primary);
+    margin: 1rem 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.envelope-btn {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.envelope-btn:hover {
+    background: var(--color-secondary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.envelope-icon {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .hero-tagline {
+        font-size: 1rem;
+    }
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* ============================================
+   CONTENEDOR Y ESPACIOS
+   ============================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    padding: 4rem 2rem;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* ============================================
+   ANUNCIO
+   ============================================ */
+.announcement {
+    background: var(--color-white);
+    border-top: 2px solid var(--color-border);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.announcement-text {
+    max-width: 800px;
+    margin: 1rem auto 2rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.announcement-quote {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
+   CUENTA REGRESIVA
+   ============================================ */
+.countdown-section {
+    background: var(--color-accent);
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.countdown-item {
+    background: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.countdown-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.countdown-date {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-top: 2rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .countdown {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .countdown-value {
+        font-size: 1.8rem;
+    }
+}
+
+/* ============================================
+   ITINERARIO
+   ============================================ */
+.itinerary {
+    background: var(--color-white);
+}
+
+.itinerary-timeline {
+    max-width: 600px;
+    margin: 2rem auto;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline-item {
+    background: var(--color-accent);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    border-left: 4px solid var(--color-primary);
+    animation: slideInLeft 0.6s ease-in-out;
+}
+
+.timeline-time {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-event {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.timeline-location {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-top: 0.3rem;
+}
+
+.timeline-connector {
+    height: 20px;
+    width: 2px;
+    background: var(--color-border);
+    margin: 0 auto;
+}
+
+/* ============================================
+   DETALLES DEL EVENTO
+   ============================================ */
+.event-details {
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+}
+
+.container > :not(.event-card):first-child {
+    margin-top: -2rem;
+}
+
+.event-card {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+    margin-bottom: 2rem;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.event-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.event-card-title {
+    margin-bottom: 0.5rem;
+}
+
+.event-card-time {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.event-card-location {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.event-card-link {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-primary);
+    transition: var(--transition);
+}
+
+.event-card-link:hover {
+    color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* ============================================
+   GALERÍA
+   ============================================ */
+.gallery {
+    background: var(--color-white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 250px;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-hover);
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--color-primary);
+    text-align: center;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* ============================================
+   CÓDIGO DE VESTIMENTA
+   ============================================ */
+.dress-code {
+    background: var(--color-accent);
+}
+
+.dress-code-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dress-code-item {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.dress-code-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.dress-code-item h3 {
+    margin-bottom: 1rem;
+}
+
+.dress-code-item p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+}
+
+/* ============================================
+   MÚSICA
+   ============================================ */
+.music-section {
+    background: var(--color-white);
+    text-align: center;
+}
+
+.music-content {
+    max-width: 600px;
+    margin: 2rem auto;
+    font-size: 1.05rem;
+}
+
+.music-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   HASHTAG
+   ============================================ */
+.hashtag-section {
+    background: var(--color-accent);
+    text-align: center;
+}
+
+.hashtag-box {
+    background: var(--color-white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hashtag-large {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hashtag-text {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   HOSPEDAJE
+   ============================================ */
+.accommodations {
+    background: var(--color-white);
+}
+
+.hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.hotel-card {
+    background: var(--color-accent);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--color-primary);
+    box-shadow: var(--shadow);
+}
+
+.hotel-card h4 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.hotel-city {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.hotel-link {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--color-primary);
+    transition: var(--transition);
+}
+
+.hotel-link:hover {
+    color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
+}
+
+.accommodations-note {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    font-style: italic;
+    max-width: 700px;
+    margin: 2rem auto 0;
+}
+
+/* ============================================
+   RSVP / CONFIRMACIÓN
+   ============================================ */
+.rsvp {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    text-align: center;
+}
+
+.rsvp-content {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: var(--color-white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.rsvp-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.rsvp-calendar {
+    margin-top: 2rem;
+}
+
+/* ============================================
+   SUGERENCIAS
+   ============================================ */
+.suggestions {
+    background: var(--color-white);
+    text-align: center;
+}
+
+.suggestions-content {
+    max-width: 600px;
+    margin: 2rem auto;
+    font-size: 1.05rem;
+}
+
+.suggestions-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+    background: var(--color-secondary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 2rem;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* ============================================
+   RESPONSIVE / MÓVIL
+   ============================================ */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1rem;
+    }
+
+    .nav-menu {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        display: block;
+    }
+}
