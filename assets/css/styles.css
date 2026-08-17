@@ -2,14 +2,14 @@
    VARIABLES CSS - COLORES Y FUENTES
    ============================================ */
 :root {
-    --color-primary: #8B4789;
-    --color-secondary: #D4A5D4;
-    --color-accent: #E8C1E8;
-    --color-text: #333;
-    --color-text-light: #666;
-    --color-bg: #FFF9F7;
+    --color-primary: #720eec;
+    --color-secondary: #e9e6ed;
+    --color-accent: #f0ebf8;
+    --color-text: #515151;
+    --color-text-light: #767676;
+    --color-bg: #fcfbfe;
     --color-white: #FFFFFF;
-    --color-border: #E8D5E8;
+    --color-border: #e9e6ed;
 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lato', sans-serif;
