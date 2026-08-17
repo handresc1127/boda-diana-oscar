@@ -1,5 +1,7 @@
 # Invitación de Boda — Diana & Oscar
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f5e75187-2107-4d4f-971b-152cd76bde88/deploy-status)](https://app.netlify.com/projects/nuestraboda-dianayoscar/deploys)
+
 ¡Bienvenido! Esta es tu página web de invitación de boda. Aquí encontrarás todas las instrucciones para personalizar y desplegar tu sitio.
 
 ## 📋 Contenido
@@ -120,38 +122,35 @@ Reemplaza los códigos hexadecimales (`#8B4789`, etc.) con los colores que prefi
 
 ---
 
-## 🚀 Despliegue en Netlify
+## 🚀 Despliegue en GitHub Pages
 
-### Opción A: Netlify Drop (Más simple — sin crear cuenta de GitHub)
+Este proyecto ahora usa **GitHub Pages** para desplegar automáticamente desde el repositorio de GitHub.
 
-1. Ve a https://app.netlify.com/drop
-2. Selecciona toda la carpeta `boda-diana-oscar` y arrástrala a la página
-3. Tu sitio estará en línea en segundos con una URL temporal
-4. En "Site settings" → "Change site name" → escribe `nuestraboda-dianayoscar`
-5. Tu URL final será: **https://nuestraboda-dianayoscar.netlify.app**
+### Configuración (Ya realizada)
 
-### Opción B: Conectar un repositorio Git (Recomendado para actualizaciones futuras)
+1. ✅ Repositorio en GitHub: https://github.com/handresc1127/boda-diana-oscar
+2. ✅ GitHub Pages habilitado en la rama `master`
+3. ✅ Despliegue automático activado
 
-Si quieres poder actualizar la página fácilmente:
+### Cómo actualizar
 
-1. Crea una cuenta gratuita en GitHub: https://github.com/signup
-2. Crea un repositorio nuevo público llamado `boda-diana-oscar`
-3. Sube la carpeta completa (puedes usar GitHub Desktop o la línea de comandos):
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Invitación de boda"
-   git branch -M main
-   git remote add origin https://github.com/TU_USUARIO/boda-diana-oscar.git
-   git push -u origin main
-   ```
-4. Ve a https://app.netlify.com y haz login con tu cuenta de GitHub
-5. Haz clic en "New site from Git" y selecciona tu repositorio
-6. Netlify detectará automáticamente la configuración y desplegará
-7. Cambia el nombre del sitio a `nuestraboda-dianayoscar`
+Simplemente haz cambios locales, commit y push:
+
+```bash
+# Edita los archivos que necesites
+# Por ejemplo: index.html, assets/css/styles.css, etc.
+
+git add .
+git commit -m "Describe your changes"
+git push
+```
+
+Espera 30-60 segundos y tu sitio estará actualizado en:
 
 **Con esta opción:**
-- Cualquier cambio que hagas y subas a GitHub se desplegará automáticamente
+- Despliegue gratuito e ilimitado
+- Sin cuota de ancho de banda
+- Cualquier cambio que subas a GitHub se despliega automáticamente
 - Tus invitados siempre ven la versión más reciente
 
 ---
@@ -213,8 +212,8 @@ Este sitio fue creado específicamente para Diana y Oscar. Siéntete libre de co
 
 ## ✨ ¡Felicidades!
 
-Tu página de invitación está lista. Solo personaliza los datos, crea los formularios de Google, y ¡comparte el enlace con tus invitados!
+Tu página de invitación está lista. Solo personaliza los datos, configura tu Google Apps Script, y ¡comparte el enlace con tus invitados!
 
-**URL de tu invitación:** https://nuestraboda-dianayoscar.netlify.app
+**URL de tu invitación:** https://handresc1127.github.io/boda-diana-oscar/
 
 ¡Que disfrutes tu boda! 💕
