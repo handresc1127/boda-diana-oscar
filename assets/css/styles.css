@@ -19,15 +19,7 @@
     --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Dark mode (optional) — background color remains constant */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-text: #E8E8E8;
-        --color-text-light: #B0B0B0;
-        --color-white: #2A2427;
-        --color-border: #3D3238;
-    }
-}
+/* Dark mode disabled — light mode only */
 
 /* ============================================
    RESET Y ESTILOS GLOBALES
